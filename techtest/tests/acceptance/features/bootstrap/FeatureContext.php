@@ -30,7 +30,7 @@ class FeatureContext extends BehatContext {
      */
     public function iHitMultiply() {
         $this->calculator->pressMultiply();
-        jjj
+        
     }
 
     /**
