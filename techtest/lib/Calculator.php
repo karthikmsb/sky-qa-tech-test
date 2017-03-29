@@ -2,15 +2,16 @@
 
 class Calculator implements iCalculator {
 
-    protected $stack;
-    protected $op;
+    public $stack;
+    public $op;
     protected $result;
+	public $number
 
-    public function add($a, $b) {
-        return ($a + $b);
+    public function add($a, $b) {		
+       return ($a + $b);
     }
-
-    public function subtract($a, $b) {
+	
+	 public function subtract($a, $b) {
         return ($a - $b);
     }
 
@@ -20,13 +21,13 @@ class Calculator implements iCalculator {
     
     public function divide($a, $b) {
         return ($a / $b);
-    }
+    }	
 
     public function pressNumber($number) {
         $this->stack[] = $number;
     }
-
-    public function pressAdd() {
+	
+	public function pressAdd() {
         if(count($this->stack) > 1) {
             $this->evaluateStack();
         }
@@ -73,10 +74,11 @@ class Calculator implements iCalculator {
                 $result = $this->divide(array_shift($this->stack), array_shift($this->stack));
                 break;
         }
+		
         $this->clearStack();
         $this->stack[] = $result;
     }
-
+	
     protected function clearStack() {
         $this->stack = array();
     }
